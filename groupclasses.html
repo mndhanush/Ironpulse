@@ -1,0 +1,697 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IronPulse | Group Classes</title>
+  <meta name="description" content="High-octane group fitness classes at IronPulse. HIIT, Yoga, Spin, and Strength.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = { 
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'dark-bg': '#111827',
+            'light-bg': '#FFFFFF',
+            'primary': '#EF4444',
+            'secondary': '#F97316',
+            'dark-surface': '#1f2937'
+          },
+          backgroundImage: {
+            'gradient-primary': 'linear-gradient(to right, #EF4444, #F97316)',
+            'gradient-secondary': 'linear-gradient(to right, #F97316, #facc15)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+    .hide-scroll::-webkit-scrollbar { display: none; }
+    .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    /* Schedule specific hover fx */
+    .schedule-row:hover .schedule-btn { background: #EF4444; color: white; border-color: #EF4444; }
+  </style>
+</head>
+<body class="font-sans antialiased transition-colors duration-300 bg-light-bg dark:bg-dark-bg text-dark-bg dark:text-white flex flex-col min-h-screen">
+
+  <!-- NAVIGATION -->
+  <div class="fixed top-2 md:top-4 inset-x-0 z-50 px-3 sm:px-6 lg:px-8 flex justify-center pointer-events-none">
+    <nav class="w-full max-w-[1600px] bg-light-bg/90 dark:bg-dark-bg/90 backdrop-blur-lg border border-gray-200 dark:border-primary/30 rounded-2xl xl:rounded-full shadow-2xl transition-colors duration-300 pointer-events-auto relative">
+      <div class="flex justify-between items-center h-[70px] md:h-[80px] px-4 xl:px-8">
+
+        <!-- LOGO -->
+        <div class="flex-shrink-0 pr-2 xl:pr-4">
+          <a href="index.html" class="flex items-center gap-2 md:gap-3">
+            <i class="fas fa-dumbbell text-3xl md:text-4xl text-primary drop-shadow-[0_2px_8px_rgba(239,68,68,0.4)]"></i>
+            <div class="flex flex-col">
+              <span class="text-xl md:text-2xl font-black tracking-widest text-dark-bg dark:text-white uppercase truncate">Iron<span class="text-primary">Pulse</span></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- DESKTOP MENU -->
+        <div class="hidden xl:flex items-center justify-center flex-1">
+          <div class="flex items-center gap-1">
+            
+            <!-- Home Dropdown -->
+            <div class="relative group h-[80px] flex items-center">
+              <a href="#" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary transition-colors flex items-center relative px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10 whitespace-nowrap">
+                <span>Home</span>
+                <i class="fas fa-chevron-down text-[8px] ms-1 transition-transform duration-300 group-hover:rotate-180"></i>
+              </a>
+              <div class="absolute top-[70px] start-0 w-48 bg-light-bg dark:bg-dark-bg border border-gray-200 dark:border-primary/20 shadow-2xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
+                <div class="py-2 flex flex-col">
+                  <a href="index.html" class="px-6 py-3 text-xs font-bold text-dark-bg dark:text-white hover:text-white hover:bg-primary transition-colors uppercase">Home 1</a>
+                  <a href="home2.html" class="px-6 py-3 text-xs font-bold text-dark-bg dark:text-white hover:text-white hover:bg-primary transition-colors uppercase">Home 2</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Standard Links -->
+            <a href="about.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">About</a>
+            <a href="blog.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">Blog</a>
+            <a href="nutrition.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">Nutrition</a>
+            <a href="groupclasses.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-primary bg-gray-100 dark:bg-primary/10 transition-colors px-2 py-2 rounded-md">Group Classes</a>
+            <a href="facilities.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">Facilities</a>
+            <a href="pricing.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">Pricing</a>
+            <a href="faq.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">FAQ</a>
+            <a href="contact.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">Contact</a>
+
+            <!-- Dashboard Dropdown -->
+            <div class="relative group h-[80px] flex items-center">
+              <a href="#" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary transition-colors flex items-center relative px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10 whitespace-nowrap">
+                <span>Dashboard</span>
+                <i class="fas fa-chevron-down text-[8px] ms-1 transition-transform duration-300 group-hover:rotate-180"></i>
+              </a>
+              <div class="absolute top-[70px] end-0 w-48 bg-light-bg dark:bg-dark-bg border border-gray-200 dark:border-primary/20 shadow-2xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
+                <div class="py-2 flex flex-col">
+                  <a href="dashboard-user.html" class="px-6 py-3 text-xs font-bold text-dark-bg dark:text-white hover:text-white hover:bg-primary transition-colors uppercase"><i class="fas fa-user mr-2"></i> User</a>
+                  <a href="dashboard-admin.html" class="px-6 py-3 text-xs font-bold text-dark-bg dark:text-white hover:text-white hover:bg-primary transition-colors uppercase"><i class="fas fa-shield-alt mr-2"></i> Admin</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 flex-shrink-0">
+                    <div class="hidden xl:flex items-center gap-2">
+            <button type="button" class="rtl-toggle-btn text-dark-bg dark:text-white hover:text-primary focus:outline-none transition duration-300 bg-gray-100 dark:bg-primary/10 px-3 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-wider" title="Toggle RTL">RTL</button>
+            <button id="theme-toggle" class="text-dark-bg dark:text-white hover:text-primary focus:outline-none transition duration-300 bg-gray-100 dark:bg-primary/10 p-2.5 rounded-full" title="Toggle Mode">
+              <i class="fas fa-moon text-sm" id="theme-icon"></i>
+            </button>
+            <a href="login.html" class="text-dark-bg dark:text-white hover:text-primary focus:outline-none transition duration-300 bg-gray-100 dark:bg-primary/10 px-4 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-wider">Login</a>
+            <a href="register.html" class="bg-gradient-primary text-white px-5 py-2.5 rounded-full text-[10px] uppercase tracking-wider font-bold shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300">Register</a>
+          </div>
+
+          <!-- Mobile Toggle -->
+          <button id="mobile-menu-button" class="xl:hidden text-dark-bg dark:text-white hover:text-primary focus:outline-none transition duration-300 bg-gray-100 dark:bg-primary/10 p-2 rounded-full">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- MOBILE MENU DROPDOWN -->
+      <div id="mobile-menu" class="hidden xl:hidden absolute top-[80px] inset-x-0 bg-light-bg dark:bg-dark-bg border border-gray-200 dark:border-primary/20 shadow-2xl rounded-2xl transition-colors duration-300 overflow-hidden z-50">
+        <div class="px-6 pt-4 pb-8 flex flex-col gap-0 max-h-[75vh] overflow-y-auto hide-scroll">
+          <div class="border-b border-gray-200 dark:border-white/10 flex flex-col">
+            <div class="w-full flex items-center justify-between py-4">
+              <span class="text-xs uppercase tracking-widest font-bold text-dark-bg dark:text-white">Home</span>
+              <button id="mobile-home-dropdown" class="p-2 -mr-2 text-dark-bg dark:text-white focus:outline-none"><i class="fas fa-plus text-xs" id="mobile-home-icon"></i></button>
+            </div>
+            <div id="mobile-home-menu" class="hidden pb-4 flex flex-col gap-3 ps-4 border-s-2 border-gray-500 ms-2">
+              <a href="index.html" class="block text-xs font-bold text-gray-600 dark:text-white/70 hover:text-primary uppercase">Home 1</a>
+              <a href="home2.html" class="block text-xs font-bold text-gray-600 dark:text-white/70 hover:text-primary uppercase">Home 2</a>
+            </div>
+          </div>
+          <a href="about.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">About</a>
+          <a href="blog.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">Blog</a>
+          <a href="nutrition.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">Nutrition</a>
+          <a href="groupclasses.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-primary text-xs uppercase tracking-widest font-bold">Group Classes</a>
+          <a href="facilities.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">Facilities</a>
+          <a href="pricing.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">Pricing</a>
+          <a href="faq.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">FAQ</a>
+          <a href="contact.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">Contact</a>
+          <div class="border-b border-gray-200 dark:border-white/10 flex flex-col">
+            <div class="w-full flex items-center justify-between py-4">
+              <span class="text-xs uppercase tracking-widest font-bold text-dark-bg dark:text-white">Dashboard</span>
+              <button id="mobile-dash-dropdown" class="p-2 -mr-2 text-dark-bg dark:text-white focus:outline-none"><i class="fas fa-plus text-xs" id="mobile-dash-icon"></i></button>
+            </div>
+            <div id="mobile-dash-menu" class="hidden pb-4 flex flex-col gap-3 ps-4 border-s-2 border-gray-500 ms-2">
+              <a href="dashboard-user.html" class="block text-xs font-bold text-gray-600 dark:text-white/70 hover:text-primary uppercase">User</a>
+              <a href="dashboard-admin.html" class="block text-xs font-bold text-gray-600 dark:text-white/70 hover:text-primary uppercase">Admin</a>
+            </div>
+          </div>
+                    <div class="pt-6 flex flex-col gap-4">
+            <a href="login.html" class="flex items-center justify-center w-full border border-gray-200 dark:border-primary/30 text-dark-bg dark:text-white px-2 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition duration-300 hover:bg-gray-100 dark:hover:bg-primary/10">Login</a>
+            <a href="register.html" class="flex items-center justify-center w-full bg-gradient-primary text-white px-2 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition duration-300">Register</a>
+            <div class="flex gap-4">
+              <button type="button" class="rtl-toggle-btn flex-1 flex items-center justify-center gap-2 text-dark-bg dark:text-white bg-gray-100 dark:bg-primary/10 px-4 py-3 rounded-full uppercase tracking-widest text-xs font-bold">RTL</button>
+              <button id="mobile-theme-toggle" class="flex-1 flex items-center justify-center gap-2 text-dark-bg dark:text-white bg-gray-100 dark:bg-primary/10 px-4 py-3 rounded-full uppercase tracking-widest text-xs font-bold">
+                <i class="fas fa-moon text-sm" id="mobile-theme-icon"></i>
+                <span id="mobile-theme-text">Light Mode</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main class="flex-grow w-full max-w-[100vw] overflow-hidden">
+    
+    <!-- 1ï¸âƒ£ HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark-bg pt-20">
+      <div class="absolute inset-0 bg-[url('assets/images/gym_28.jpg')] bg-cover bg-center bg-fixed"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/80 to-dark-bg/40"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center mt-10">
+        <div class="animate-fade-in max-w-3xl mx-auto">
+          <span class="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary border border-primary/50 text-xs font-bold uppercase tracking-widest mb-6">Strength In Numbers</span>
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-black leading-tight tracking-tight text-white mb-6 uppercase">
+            Train Together.<br/>
+            <span class="text-transparent bg-clip-text bg-gradient-primary">Triumph Together.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 leading-relaxed font-medium mb-10">
+            Over 50 high-octane group classes a week led by elite instructors. Feed off the energy of the pack and push yourself beyond what you thought possible.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="#schedule" class="w-full sm:w-auto px-8 py-4 bg-gradient-primary text-white font-bold uppercase tracking-widest text-sm transition-transform duration-300 hover:scale-105 shadow-[0_0_20px_rgba(239,68,68,0.4)] rounded-full text-center">
+              View Schedule
+            </a>
+            <a href="#categories" class="w-full sm:w-auto px-8 py-4 border-2 border-white/50 text-white hover:border-white hover:bg-white hover:text-dark-bg font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-full text-center">
+              Explore Formats
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2ï¸âƒ£ CLASS CATEGORIES -->
+    <section id="categories" class="py-20 md:py-28 bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-primary/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-black text-dark-bg dark:text-white uppercase tracking-tight mb-4">
+            Our <span class="text-primary">Disciplines</span>
+          </h2>
+          <div class="w-24 h-1.5 bg-gradient-primary mx-auto rounded-full mb-6"></div>
+          <p class="text-gray-600 dark:text-gray-400 text-lg font-medium max-w-2xl mx-auto">From heart-pounding intervals to deep, restorative mobility work, find the format that fits your goals.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Category 1 -->
+          <div class="bg-gray-50 dark:bg-dark-surface p-8 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-primary transition-all duration-300 group shadow-lg">
+            <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+              <i class="fas fa-stopwatch text-3xl text-primary group-hover:text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-dark-bg dark:text-white uppercase tracking-wide mb-3">HIIT Burn</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-4">
+              High-intensity interval training designed to spike your heart rate and maximize post-workout calorie burn.
+            </p>
+            <span class="text-xs font-bold uppercase text-primary tracking-widest">45 Mins | High Impact</span>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="bg-gray-50 dark:bg-dark-surface p-8 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-secondary transition-all duration-300 group shadow-lg">
+            <div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors">
+              <i class="fas fa-dumbbell text-3xl text-secondary group-hover:text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-dark-bg dark:text-white uppercase tracking-wide mb-3">Power Forge</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-4">
+              A barbell and dumbbell focused class emphasizing perfect form, progressive overload, and raw strength.
+            </p>
+            <span class="text-xs font-bold uppercase text-secondary tracking-widest">60 Mins | Strength</span>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="bg-gray-50 dark:bg-dark-surface p-8 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-primary transition-all duration-300 group shadow-lg">
+            <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+              <i class="fas fa-biking text-3xl text-primary group-hover:text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-dark-bg dark:text-white uppercase tracking-wide mb-3">Rhythm Spin</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-4">
+              Immersive indoor cycling synchronized to heavy bass and high energy. Build endurance and torch fat.
+            </p>
+            <span class="text-xs font-bold uppercase text-primary tracking-widest">45 Mins | Endurance</span>
+          </div>
+
+          <!-- Category 4 -->
+          <div class="bg-gray-50 dark:bg-dark-surface p-8 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-secondary transition-all duration-300 group shadow-lg">
+            <div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors">
+              <i class="fas fa-yin-yang text-3xl text-secondary group-hover:text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-dark-bg dark:text-white uppercase tracking-wide mb-3">Recovery Yoga</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-4">
+              Vinyasa flows and deep stretching specifically programmed to alleviate soreness and improve mobility.
+            </p>
+            <span class="text-xs font-bold uppercase text-secondary tracking-widest">60 Mins | Mobility</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3ï¸âƒ£ CLASS SCHEDULE (Interactive UI) -->
+    <section id="schedule" class="py-20 md:py-28 bg-gray-50 dark:bg-[#0f1522] border-b border-gray-200 dark:border-primary/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div>
+            <h2 class="text-3xl md:text-5xl font-black text-dark-bg dark:text-white uppercase tracking-tight mb-4">
+              Live <span class="text-primary">Schedule</span>
+            </h2>
+            <div class="w-24 h-1.5 bg-gradient-primary rounded-full"></div>
+          </div>
+          <div class="flex overflow-x-auto hide-scroll gap-2 pb-2">
+            <button class="px-6 py-2 bg-primary text-white font-bold uppercase tracking-widest text-xs rounded-full shadow-lg whitespace-nowrap">Today</button>
+            <button class="px-6 py-2 bg-white dark:bg-dark-surface text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-primary font-bold uppercase tracking-widest text-xs rounded-full whitespace-nowrap transition-colors">Tomorrow</button>
+            <button class="px-6 py-2 bg-white dark:bg-dark-surface text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-primary font-bold uppercase tracking-widest text-xs rounded-full whitespace-nowrap transition-colors">This Week</button>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-dark-surface border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-xl">
+          <!-- Table Header -->
+          <div class="grid grid-cols-4 md:grid-cols-6 gap-4 p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-dark-bg/50 hidden md:grid">
+            <div class="text-xs font-bold uppercase text-gray-500 tracking-widest">Time</div>
+            <div class="text-xs font-bold uppercase text-gray-500 tracking-widest col-span-2">Class Format</div>
+            <div class="text-xs font-bold uppercase text-gray-500 tracking-widest">Instructor</div>
+            <div class="text-xs font-bold uppercase text-gray-500 tracking-widest">Intensity</div>
+            <div class="text-xs font-bold uppercase text-gray-500 tracking-widest text-right">Action</div>
+          </div>
+
+          <!-- Schedule Rows -->
+          <div class="divide-y divide-gray-200 dark:divide-gray-700">
+            
+            <!-- Row 1 -->
+            <div class="schedule-row grid grid-cols-1 md:grid-cols-6 gap-4 p-6 items-center transition-colors hover:bg-gray-50 dark:hover:bg-dark-bg/30 group">
+              <div class="text-xl md:text-lg font-black text-dark-bg dark:text-white">06:00 AM</div>
+              <div class="col-span-2 flex items-center gap-4">
+                <div class="w-2 h-10 bg-primary rounded-full hidden md:block"></div>
+                <div>
+                  <h4 class="font-bold text-dark-bg dark:text-white uppercase">HIIT Burn</h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Turf Zone</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 mt-4 md:mt-0">
+                <img src="assets/images/gym_23.jpg" class="w-8 h-8 rounded-full object-cover">
+                <span class="text-sm font-bold text-dark-bg dark:text-white uppercase">Elena R.</span>
+              </div>
+              <div class="flex gap-1 text-primary mt-2 md:mt-0">
+                <i class="fas fa-fire"></i><i class="fas fa-fire"></i><i class="fas fa-fire"></i>
+              </div>
+              <div class="text-left md:text-right mt-4 md:mt-0">
+                <button class="schedule-btn px-6 py-2 border-2 border-gray-300 dark:border-gray-600 text-dark-bg dark:text-white font-bold uppercase tracking-widest text-[10px] rounded-full transition-colors w-full md:w-auto">Book Now</button>
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="schedule-row grid grid-cols-1 md:grid-cols-6 gap-4 p-6 items-center transition-colors hover:bg-gray-50 dark:hover:bg-dark-bg/30 group">
+              <div class="text-xl md:text-lg font-black text-dark-bg dark:text-white">08:00 AM</div>
+              <div class="col-span-2 flex items-center gap-4">
+                <div class="w-2 h-10 bg-secondary rounded-full hidden md:block"></div>
+                <div>
+                  <h4 class="font-bold text-dark-bg dark:text-white uppercase">Power Forge</h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">The Iron Room</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 mt-4 md:mt-0">
+                <img src="assets/images/gym_24.jpg" class="w-8 h-8 rounded-full object-cover">
+                <span class="text-sm font-bold text-dark-bg dark:text-white uppercase">Marcus K.</span>
+              </div>
+              <div class="flex gap-1 text-secondary mt-2 md:mt-0">
+                <i class="fas fa-fire"></i><i class="fas fa-fire"></i><i class="fas fa-fire text-gray-300 dark:text-gray-700"></i>
+              </div>
+              <div class="text-left md:text-right mt-4 md:mt-0">
+                <button class="schedule-btn px-6 py-2 border-2 border-gray-300 dark:border-gray-600 text-dark-bg dark:text-white font-bold uppercase tracking-widest text-[10px] rounded-full transition-colors w-full md:w-auto">Book Now</button>
+              </div>
+            </div>
+
+            <!-- Row 3 (Full) -->
+            <div class="schedule-row grid grid-cols-1 md:grid-cols-6 gap-4 p-6 items-center transition-colors bg-gray-50 dark:bg-dark-bg/20 opacity-75">
+              <div class="text-xl md:text-lg font-black text-gray-500">12:00 PM</div>
+              <div class="col-span-2 flex items-center gap-4">
+                <div class="w-2 h-10 bg-gray-400 dark:bg-gray-600 rounded-full hidden md:block"></div>
+                <div>
+                  <h4 class="font-bold text-gray-500 uppercase">Rhythm Spin</h4>
+                  <p class="text-xs text-gray-400 font-medium">Spin Studio</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 mt-4 md:mt-0 opacity-50">
+                <img src="assets/images/gym_29.jpg" class="w-8 h-8 rounded-full object-cover grayscale">
+                <span class="text-sm font-bold text-gray-500 uppercase">Jason V.</span>
+              </div>
+              <div class="flex gap-1 text-gray-400 mt-2 md:mt-0">
+                <i class="fas fa-fire"></i><i class="fas fa-fire"></i><i class="fas fa-fire"></i>
+              </div>
+              <div class="text-left md:text-right mt-4 md:mt-0">
+                <span class="px-6 py-2 bg-gray-200 dark:bg-gray-800 text-gray-500 font-bold uppercase tracking-widest text-[10px] rounded-full w-full md:w-auto inline-block text-center">Class Full</span>
+              </div>
+            </div>
+            
+            <!-- Row 4 -->
+            <div class="schedule-row grid grid-cols-1 md:grid-cols-6 gap-4 p-6 items-center transition-colors hover:bg-gray-50 dark:hover:bg-dark-bg/30 group">
+              <div class="text-xl md:text-lg font-black text-dark-bg dark:text-white">05:30 PM</div>
+              <div class="col-span-2 flex items-center gap-4">
+                <div class="w-2 h-10 bg-secondary rounded-full hidden md:block"></div>
+                <div>
+                  <h4 class="font-bold text-dark-bg dark:text-white uppercase">Recovery Yoga</h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Zen Studio</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 mt-4 md:mt-0">
+                <img src="assets/images/gym_30.jpg" class="w-8 h-8 rounded-full object-cover">
+                <span class="text-sm font-bold text-dark-bg dark:text-white uppercase">David C.</span>
+              </div>
+              <div class="flex gap-1 text-secondary mt-2 md:mt-0">
+                <i class="fas fa-fire"></i><i class="fas fa-fire text-gray-300 dark:text-gray-700"></i><i class="fas fa-fire text-gray-300 dark:text-gray-700"></i>
+              </div>
+              <div class="text-left md:text-right mt-4 md:mt-0">
+                <button class="schedule-btn px-6 py-2 border-2 border-gray-300 dark:border-gray-600 text-dark-bg dark:text-white font-bold uppercase tracking-widest text-[10px] rounded-full transition-colors w-full md:w-auto">Book Now</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4ï¸âƒ£ FEATURED INSTRUCTORS -->
+    <section class="py-20 md:py-28 bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-primary/20 overflow-hidden relative">
+      <div class="absolute -left-20 top-20 w-64 h-64 bg-primary/5 rounded-full blur-[80px]"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-black text-dark-bg dark:text-white uppercase tracking-tight mb-4">
+            Commanders of the <span class="text-primary">Floor</span>
+          </h2>
+          <div class="w-24 h-1.5 bg-gradient-primary mx-auto rounded-full mb-6"></div>
+          <p class="text-gray-600 dark:text-gray-400 text-lg font-medium max-w-2xl mx-auto">Meet the elite coaches pushing the tempo and leading the pack.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          
+          <!-- Instructor 1 -->
+          <div class="group relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 h-full flex flex-col">
+            <div class="h-[400px] flex-shrink-0">
+              <img src="assets/images/gym_31.jpg" alt="Instructor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full p-6 text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <h3 class="text-2xl font-bold text-white uppercase mb-1">Marcus K.</h3>
+              <p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Power & Strength</p>
+              <p class="text-gray-300 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">Known for his relentless standards and heavy lifting blocks.</p>
+            </div>
+          </div>
+
+          <!-- Instructor 2 -->
+          <div class="group relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 h-full flex flex-col">
+            <div class="absolute top-4 right-4 z-20">
+              <span class="bg-secondary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm shadow-md">Head Coach</span>
+            </div>
+            <div class="h-[400px] flex-shrink-0">
+              <img src="assets/images/gym_32.jpg" alt="Instructor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full p-6 text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <h3 class="text-2xl font-bold text-white uppercase mb-1">Elena R.</h3>
+              <p class="text-secondary font-bold text-xs uppercase tracking-widest mb-3">HIIT & Conditioning</p>
+              <p class="text-gray-300 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">High energy, brutal intervals, and zero excuses allowed.</p>
+            </div>
+          </div>
+
+          <!-- Instructor 3 -->
+          <div class="group relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 h-full flex flex-col">
+            <div class="h-[400px] flex-shrink-0">
+              <img src="assets/images/gym_33.jpg" alt="Instructor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full p-6 text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <h3 class="text-2xl font-bold text-white uppercase mb-1">David C.</h3>
+              <p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Yoga & Mobility</p>
+              <p class="text-gray-300 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">Master of biomechanics and deep tissue restorative flows.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5ï¸âƒ£ THE STUDIOS / SPACES -->
+    <section class="py-20 md:py-28 bg-gray-50 dark:bg-[#0f1522] border-b border-gray-200 dark:border-primary/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-6">
+          <div>
+            <h2 class="text-3xl md:text-5xl font-black text-dark-bg dark:text-white uppercase tracking-tight mb-4">
+              Premium <span class="text-primary">Environments</span>
+            </h2>
+            <div class="w-24 h-1.5 bg-gradient-primary rounded-full"></div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 text-lg font-medium max-w-xl">
+            Our purpose-built studios are engineered with acoustic dampening, custom lighting, and shock-absorbent flooring to optimize your session.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Space 1 -->
+          <div class="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden group">
+            <img src="assets/images/gym_34.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-dark-bg/50 group-hover:bg-dark-bg/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-6 left-6">
+              <span class="bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm mb-2 inline-block">The Forge</span>
+              <h3 class="text-2xl font-black text-white uppercase tracking-wide">Heavy Strength Studio</h3>
+            </div>
+          </div>
+          
+          <!-- Space 2 & 3 Column -->
+          <div class="grid grid-rows-2 gap-4 h-[600px] md:h-[400px]">
+            <!-- Space 2 -->
+            <div class="relative h-full rounded-2xl overflow-hidden group">
+              <img src="assets/images/gym_9.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-dark-bg/50 group-hover:bg-dark-bg/30 transition-colors duration-300"></div>
+              <div class="absolute bottom-6 left-6">
+                <span class="bg-secondary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm mb-2 inline-block">The Turf</span>
+                <h3 class="text-xl font-black text-white uppercase tracking-wide">Functional & HIIT Zone</h3>
+              </div>
+            </div>
+            <!-- Space 3 -->
+            <div class="relative h-full rounded-2xl overflow-hidden group">
+              <img src="assets/images/gym_35.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-dark-bg/50 group-hover:bg-dark-bg/30 transition-colors duration-300"></div>
+              <div class="absolute bottom-6 left-6">
+                <span class="bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm mb-2 inline-block">The Zen Room</span>
+                <h3 class="text-xl font-black text-white uppercase tracking-wide">Heated Yoga Studio</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6ï¸âƒ£ CTA / BOOKING SECTION -->
+    <section class="py-24 relative overflow-hidden bg-dark-bg border-t border-primary/20">
+      <div class="absolute inset-0 bg-[url('assets/images/gym_36.jpg')] bg-cover bg-center opacity-20"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-dark-bg via-dark-bg/90 to-primary/20 mix-blend-multiply"></div>
+      
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6">
+          Claim Your <br/> Spot.
+        </h2>
+        <p class="text-white/90 font-medium text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+          Classes fill up fast. Experience the intensity of IronPulse group training with a free drop-in pass. First class is on us.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+          <a href="pricing.html" class="px-8 py-4 bg-gradient-primary text-white font-bold uppercase tracking-widest text-sm transition-transform duration-300 hover:scale-105 shadow-[0_0_20px_rgba(239,68,68,0.4)] rounded-full text-center">
+            Claim Free Class <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+          <a href="#schedule" class="px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-dark-bg font-bold uppercase tracking-widest text-sm transition-colors rounded-full text-center">
+            View Schedule
+          </a>
+        </div>
+        <p class="text-white/50 text-xs font-bold uppercase tracking-wider mt-6">Valid for local residents only. Terms apply.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0b101a] text-white pt-16 pb-10 border-t border-primary/20 w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        
+        <div class="md:col-span-1">
+          <a href="index.html" class="flex items-center gap-3 mb-6">
+            <i class="fas fa-dumbbell text-3xl text-primary"></i>
+            <h3 class="text-2xl font-black tracking-widest uppercase text-white">Iron<span class="text-primary">Pulse</span></h3>
+          </a>
+          <p class="text-gray-400 text-sm font-medium leading-relaxed mb-6">
+            Forging strength, endurance, and community. Start your transformation today.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary text-white flex items-center justify-center transition-colors rounded-full"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary text-white flex items-center justify-center transition-colors rounded-full"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary text-white flex items-center justify-center transition-colors rounded-full"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-widest font-bold mb-6 text-white border-l-2 border-primary pl-3">Explore</h4>
+          <ul class="space-y-4">
+            <li><a href="about.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">About Us</a></li>
+            <li><a href="facilities.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Facilities</a></li>
+            <li><a href="groupclasses.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Classes</a></li>
+            <li><a href="pricing.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-widest font-bold mb-6 text-white border-l-2 border-primary pl-3">Support</h4>
+          <ul class="space-y-4">
+            <li><a href="faq.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">FAQ</a></li>
+            <li><a href="contact.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Contact Us</a></li>
+            <li><a href="nutrition.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Nutrition Guide</a></li>
+            <li><a href="dashboard-user.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Member Portal</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-widest font-bold mb-6 text-white border-l-2 border-primary pl-3">Contact</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start text-sm text-gray-400">
+              <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+              <span class="font-medium">100 Muscle Ave, Fitness District, NY 10001</span>
+            </li>
+            <li class="flex items-center text-sm text-gray-400">
+              <i class="fas fa-phone text-primary mr-3"></i>
+              <a href="tel:+1234567890" class="hover:text-primary transition-colors font-medium">+1 (234) 567-8900</a>
+            </li>
+            <li class="flex items-center text-sm text-gray-400">
+              <i class="fas fa-envelope text-primary mr-3"></i>
+              <a href="mailto:info@ironpulse.com" class="hover:text-primary transition-colors font-medium">info@ironpulse.com</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
+        <p class="text-gray-500 text-xs tracking-widest uppercase font-bold">
+          Â© 2026 IronPulse Fitness. All rights reserved.
+        </p>
+        <div class="flex gap-6">
+          <a href="#" class="text-gray-500 hover:text-primary text-xs tracking-widest uppercase font-bold transition-colors">Privacy</a>
+          <a href="#" class="text-gray-500 hover:text-primary text-xs tracking-widest uppercase font-bold transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('flex');
+      } else {
+          mobileMenu.classList.remove('flex');
+      }
+    });
+
+    // Mobile Dropdown Logic
+    function setupMobileDropdown(dropdownId, menuId, iconId) {
+      const dropdownBtn = document.getElementById(dropdownId);   
+      const menu = document.getElementById(menuId);
+      const icon = document.getElementById(iconId);
+      
+      if(dropdownBtn && menu && icon) {
+        dropdownBtn.addEventListener('click', (e) => {
+          e.preventDefault(); 
+          menu.classList.toggle('hidden');
+          if(menu.classList.contains('hidden')) {
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+            menu.classList.remove('flex');
+          } else {
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+            menu.classList.add('flex');
+          }
+        });
+      }
+    }
+
+    setupMobileDropdown('mobile-home-dropdown', 'mobile-home-menu', 'mobile-home-icon');
+    setupMobileDropdown('mobile-dash-dropdown', 'mobile-dash-menu', 'mobile-dash-icon');
+
+    // Theme Toggle (Dark/Light)
+    (function() {
+      function updateThemeIcons() {
+        const isDark = html.classList.contains('dark');
+        const themeIcon = document.getElementById('theme-icon');
+        if (themeIcon) themeIcon.className = isDark ? 'fas fa-sun text-sm' : 'fas fa-moon text-sm';
+        
+        const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+        const mobileThemeText = document.getElementById('mobile-theme-text');
+        if (mobileThemeIcon) mobileThemeIcon.className = isDark ? 'fas fa-sun text-sm' : 'fas fa-moon text-sm';
+        if (mobileThemeText) mobileThemeText.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+      }
+
+      function toggleTheme() {
+        html.classList.toggle('dark');
+        updateThemeIcons();
+      }
+
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+
+      const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+      if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+
+      updateThemeIcons();
+    
+      // --- RTL Toggle Logic ---
+      const rtlToggleBtns = document.querySelectorAll('.rtl-toggle-btn');
+      rtlToggleBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation(); 
+          document.body.classList.add('no-transition');
+          const currentDir = html.getAttribute('dir') || 'ltr';
+          html.setAttribute('dir', currentDir === 'ltr' ? 'rtl' : 'ltr');
+          setTimeout(() => { document.body.classList.remove('no-transition'); }, 50);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

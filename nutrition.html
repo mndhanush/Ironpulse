@@ -1,0 +1,632 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IronPulse | Nutrition & Fuel</title>
+  <meta name="description" content="Expert nutrition guidance, custom meal plans, and premium supplements to fuel your fitness journey.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = { 
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'dark-bg': '#111827',
+            'light-bg': '#FFFFFF',
+            'primary': '#EF4444',
+            'secondary': '#F97316',
+            'dark-surface': '#1f2937'
+          },
+          backgroundImage: {
+            'gradient-primary': 'linear-gradient(to right, #EF4444, #F97316)',
+            'gradient-secondary': 'linear-gradient(to right, #F97316, #facc15)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+    .hide-scroll::-webkit-scrollbar { display: none; }
+    .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="font-sans antialiased transition-colors duration-300 bg-light-bg dark:bg-dark-bg text-dark-bg dark:text-white flex flex-col min-h-screen">
+
+  <!-- NAVIGATION -->
+  <div class="fixed top-2 md:top-4 inset-x-0 z-50 px-3 sm:px-6 lg:px-8 flex justify-center pointer-events-none">
+    <nav class="w-full max-w-[1600px] bg-light-bg/90 dark:bg-dark-bg/90 backdrop-blur-lg border border-gray-200 dark:border-primary/30 rounded-2xl xl:rounded-full shadow-2xl transition-colors duration-300 pointer-events-auto relative">
+      <div class="flex justify-between items-center h-[70px] md:h-[80px] px-4 xl:px-8">
+
+        <!-- LOGO -->
+        <div class="flex-shrink-0 pr-2 xl:pr-4">
+          <a href="index.html" class="flex items-center gap-2 md:gap-3">
+            <i class="fas fa-dumbbell text-3xl md:text-4xl text-primary drop-shadow-[0_2px_8px_rgba(239,68,68,0.4)]"></i>
+            <div class="flex flex-col">
+              <span class="text-xl md:text-2xl font-black tracking-widest text-dark-bg dark:text-white uppercase truncate">Iron<span class="text-primary">Pulse</span></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- DESKTOP MENU -->
+        <div class="hidden xl:flex items-center justify-center flex-1">
+          <div class="flex items-center gap-1">
+            
+            <!-- Home Dropdown -->
+            <div class="relative group h-[80px] flex items-center">
+              <a href="#" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary transition-colors flex items-center relative px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10 whitespace-nowrap">
+                <span>Home</span>
+                <i class="fas fa-chevron-down text-[8px] ms-1 transition-transform duration-300 group-hover:rotate-180"></i>
+              </a>
+              <div class="absolute top-[70px] start-0 w-48 bg-light-bg dark:bg-dark-bg border border-gray-200 dark:border-primary/20 shadow-2xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
+                <div class="py-2 flex flex-col">
+                  <a href="index.html" class="px-6 py-3 text-xs font-bold text-dark-bg dark:text-white hover:text-white hover:bg-primary transition-colors uppercase">Home 1</a>
+                  <a href="home2.html" class="px-6 py-3 text-xs font-bold text-dark-bg dark:text-white hover:text-white hover:bg-primary transition-colors uppercase">Home 2</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Standard Links -->
+            <a href="about.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">About</a>
+            <a href="blog.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">Blog</a>
+            <a href="nutrition.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-primary bg-gray-100 dark:bg-primary/10 transition-colors px-2 py-2 rounded-md">Nutrition</a>
+            <a href="groupclasses.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">Group Classes</a>
+            <a href="facilities.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">Facilities</a>
+            <a href="pricing.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">Pricing</a>
+            <a href="faq.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">FAQ</a>
+            <a href="contact.html" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary dark:hover:text-primary transition-colors px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10">Contact</a>
+
+            <!-- Dashboard Dropdown -->
+            <div class="relative group h-[80px] flex items-center">
+              <a href="#" class="text-[10px] uppercase tracking-[0.1em] font-bold text-dark-bg dark:text-white hover:text-primary transition-colors flex items-center relative px-2 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-primary/10 whitespace-nowrap">
+                <span>Dashboard</span>
+                <i class="fas fa-chevron-down text-[8px] ms-1 transition-transform duration-300 group-hover:rotate-180"></i>
+              </a>
+              <div class="absolute top-[70px] end-0 w-48 bg-light-bg dark:bg-dark-bg border border-gray-200 dark:border-primary/20 shadow-2xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
+                <div class="py-2 flex flex-col">
+                  <a href="dashboard-user.html" class="px-6 py-3 text-xs font-bold text-dark-bg dark:text-white hover:text-white hover:bg-primary transition-colors uppercase"><i class="fas fa-user mr-2"></i> User</a>
+                  <a href="dashboard-admin.html" class="px-6 py-3 text-xs font-bold text-dark-bg dark:text-white hover:text-white hover:bg-primary transition-colors uppercase"><i class="fas fa-shield-alt mr-2"></i> Admin</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 flex-shrink-0">
+                    <div class="hidden xl:flex items-center gap-2">
+            <button type="button" class="rtl-toggle-btn text-dark-bg dark:text-white hover:text-primary focus:outline-none transition duration-300 bg-gray-100 dark:bg-primary/10 px-3 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-wider" title="Toggle RTL">RTL</button>
+            <button id="theme-toggle" class="text-dark-bg dark:text-white hover:text-primary focus:outline-none transition duration-300 bg-gray-100 dark:bg-primary/10 p-2.5 rounded-full" title="Toggle Mode">
+              <i class="fas fa-moon text-sm" id="theme-icon"></i>
+            </button>
+            <a href="login.html" class="text-dark-bg dark:text-white hover:text-primary focus:outline-none transition duration-300 bg-gray-100 dark:bg-primary/10 px-4 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-wider">Login</a>
+            <a href="register.html" class="bg-gradient-primary text-white px-5 py-2.5 rounded-full text-[10px] uppercase tracking-wider font-bold shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300">Register</a>
+          </div>
+
+          <!-- Mobile Toggle -->
+          <button id="mobile-menu-button" class="xl:hidden text-dark-bg dark:text-white hover:text-primary focus:outline-none transition duration-300 bg-gray-100 dark:bg-primary/10 p-2 rounded-full">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- MOBILE MENU DROPDOWN -->
+      <div id="mobile-menu" class="hidden xl:hidden absolute top-[80px] inset-x-0 bg-light-bg dark:bg-dark-bg border border-gray-200 dark:border-primary/20 shadow-2xl rounded-2xl transition-colors duration-300 overflow-hidden z-50">
+        <div class="px-6 pt-4 pb-8 flex flex-col gap-0 max-h-[75vh] overflow-y-auto hide-scroll">
+          <div class="border-b border-gray-200 dark:border-white/10 flex flex-col">
+            <div class="w-full flex items-center justify-between py-4">
+              <span class="text-xs uppercase tracking-widest font-bold text-dark-bg dark:text-white">Home</span>
+              <button id="mobile-home-dropdown" class="p-2 -mr-2 text-dark-bg dark:text-white focus:outline-none"><i class="fas fa-plus text-xs" id="mobile-home-icon"></i></button>
+            </div>
+            <div id="mobile-home-menu" class="hidden pb-4 flex flex-col gap-3 ps-4 border-s-2 border-gray-500 ms-2">
+              <a href="index.html" class="block text-xs font-bold text-gray-600 dark:text-white/70 hover:text-primary uppercase">Home 1</a>
+              <a href="home2.html" class="block text-xs font-bold text-gray-600 dark:text-white/70 hover:text-primary uppercase">Home 2</a>
+            </div>
+          </div>
+          <a href="about.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">About</a>
+          <a href="blog.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">Blog</a>
+          <a href="nutrition.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-primary text-xs uppercase tracking-widest font-bold">Nutrition</a>
+          <a href="groupclasses.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">Group Classes</a>
+          <a href="facilities.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">Facilities</a>
+          <a href="pricing.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">Pricing</a>
+          <a href="faq.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">FAQ</a>
+          <a href="contact.html" class="block py-4 border-b border-gray-200 dark:border-white/10 text-dark-bg dark:text-white hover:text-primary text-xs uppercase tracking-widest font-bold">Contact</a>
+          <div class="border-b border-gray-200 dark:border-white/10 flex flex-col">
+            <div class="w-full flex items-center justify-between py-4">
+              <span class="text-xs uppercase tracking-widest font-bold text-dark-bg dark:text-white">Dashboard</span>
+              <button id="mobile-dash-dropdown" class="p-2 -mr-2 text-dark-bg dark:text-white focus:outline-none"><i class="fas fa-plus text-xs" id="mobile-dash-icon"></i></button>
+            </div>
+            <div id="mobile-dash-menu" class="hidden pb-4 flex flex-col gap-3 ps-4 border-s-2 border-gray-500 ms-2">
+              <a href="dashboard-user.html" class="block text-xs font-bold text-gray-600 dark:text-white/70 hover:text-primary uppercase">User</a>
+              <a href="dashboard-admin.html" class="block text-xs font-bold text-gray-600 dark:text-white/70 hover:text-primary uppercase">Admin</a>
+            </div>
+          </div>
+                    <div class="pt-6 flex flex-col gap-4">
+            <a href="login.html" class="flex items-center justify-center w-full border border-gray-200 dark:border-primary/30 text-dark-bg dark:text-white px-2 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition duration-300 hover:bg-gray-100 dark:hover:bg-primary/10">Login</a>
+            <a href="register.html" class="flex items-center justify-center w-full bg-gradient-primary text-white px-2 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition duration-300">Register</a>
+            <div class="flex gap-4">
+              <button type="button" class="rtl-toggle-btn flex-1 flex items-center justify-center gap-2 text-dark-bg dark:text-white bg-gray-100 dark:bg-primary/10 px-4 py-3 rounded-full uppercase tracking-widest text-xs font-bold">RTL</button>
+              <button id="mobile-theme-toggle" class="flex-1 flex items-center justify-center gap-2 text-dark-bg dark:text-white bg-gray-100 dark:bg-primary/10 px-4 py-3 rounded-full uppercase tracking-widest text-xs font-bold">
+                <i class="fas fa-moon text-sm" id="mobile-theme-icon"></i>
+                <span id="mobile-theme-text">Light Mode</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main class="flex-grow w-full max-w-[100vw] overflow-hidden">
+    
+    <!-- 1ï¸âƒ£ HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark-bg pt-20">
+      <div class="absolute inset-0 bg-[url('assets/images/gym_44.jpg')] bg-cover bg-center bg-fixed"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-dark-bg/95 via-dark-bg/80 to-dark-bg/30"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-10">
+        <div class="animate-fade-in max-w-2xl">
+          <span class="inline-block py-1 px-3 rounded-full bg-secondary/20 text-secondary border border-secondary/50 text-xs font-bold uppercase tracking-widest mb-6">Fuel Your Potential</span>
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-black leading-tight tracking-tight text-white mb-6 uppercase">
+            You Can't <br/> Out-Train A <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-primary">Bad Diet.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 leading-relaxed font-medium mb-10">
+            Training is only the stimulus. Nutrition is the recovery, the growth, and the fuel. Discover science-backed meal plans and expert coaching tailored to your body type.
+          </p>
+          <div class="flex flex-wrap gap-4 items-center">
+            <a href="#plans" class="px-8 py-4 bg-gradient-primary text-white font-bold uppercase tracking-widest text-sm transition-transform duration-300 hover:scale-105 shadow-[0_0_20px_rgba(239,68,68,0.4)] rounded-full text-center">
+              View Meal Plans
+            </a>
+            <a href="#consultation" class="px-8 py-4 border-2 border-white/50 text-white hover:border-white hover:bg-white hover:text-dark-bg font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-full text-center">
+              Book Dietitian
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2ï¸âƒ£ THE PHILOSOPHY -->
+    <section class="py-20 md:py-28 bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-primary/20 flex flex-col items-stretch">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full w-full">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-black text-dark-bg dark:text-white uppercase tracking-tight mb-4">
+            The IronPulse <span class="text-primary">Philosophy</span>
+          </h2>
+          <div class="w-24 h-1.5 bg-gradient-primary mx-auto rounded-full mb-6"></div>
+          <p class="text-gray-600 dark:text-gray-400 text-lg font-medium max-w-2xl mx-auto">We don't do crash diets or restrictive fads. We focus on sustainable, science-driven metabolic optimization.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
+          <!-- Pillar 1 -->
+          <div class="bg-gray-50 dark:bg-dark-surface p-8 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-lg text-center group hover:border-primary transition-colors flex flex-col h-full">
+            <div class="w-20 h-20 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i class="fas fa-chart-pie text-4xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold text-dark-bg dark:text-white uppercase tracking-wide mb-3">Macro Precision</h3>
+            <p class="text-gray-600 dark:text-gray-400 font-medium text-sm leading-relaxed flex-grow">
+              We calculate your exact protein, carb, and fat requirements based on your basal metabolic rate and daily energy expenditure to guarantee results without guesswork.
+            </p>
+          </div>
+          <!-- Pillar 2 -->
+          <div class="bg-gray-50 dark:bg-dark-surface p-8 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-lg text-center group hover:border-secondary transition-colors flex flex-col h-full">
+            <div class="w-20 h-20 mx-auto bg-secondary/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i class="fas fa-leaf text-4xl text-secondary"></i>
+            </div>
+            <h3 class="text-xl font-bold text-dark-bg dark:text-white uppercase tracking-wide mb-3">Whole Food Focus</h3>
+            <p class="text-gray-600 dark:text-gray-400 font-medium text-sm leading-relaxed flex-grow">
+              Supplements are secondary. We prioritize micronutrient-dense whole foods to optimize digestion, hormonal balance, and long-term cellular health.
+            </p>
+          </div>
+          <!-- Pillar 3 -->
+          <div class="bg-gray-50 dark:bg-dark-surface p-8 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-lg text-center group hover:border-primary transition-colors flex flex-col h-full">
+            <div class="w-20 h-20 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i class="fas fa-stopwatch text-4xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold text-dark-bg dark:text-white uppercase tracking-wide mb-3">Nutrient Timing</h3>
+            <p class="text-gray-600 dark:text-gray-400 font-medium text-sm leading-relaxed flex-grow">
+              Strategic peri-workout nutrition. We structure your carbohydrate and protein intake around your training sessions to maximize glycogen replenishment and muscle protein synthesis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3ï¸âƒ£ CUSTOM MEAL PLANS -->
+    <section id="plans" class="py-20 md:py-28 bg-gray-50 dark:bg-[#0f1522] border-b border-gray-200 dark:border-primary/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-6">
+          <div>
+            <h2 class="text-3xl md:text-5xl font-black text-dark-bg dark:text-white uppercase tracking-tight mb-4">
+              Goal-Specific <span class="text-primary">Meal Plans</span>
+            </h2>
+            <div class="w-24 h-1.5 bg-gradient-primary rounded-full"></div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 text-lg font-medium max-w-xl">
+            Choose your protocol. Our pre-designed plans offer structured daily menus, grocery lists, and macro breakdowns designed to achieve a specific physiological state.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Plan 1 -->
+          <div class="bg-white dark:bg-dark-surface border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-xl flex flex-col group hover:border-primary transition-colors h-full">
+            <div class="h-48 relative overflow-hidden">
+              <img src="assets/images/gym_7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="The Shred">
+              <div class="absolute inset-0 bg-dark-bg/40"></div>
+              <h3 class="absolute bottom-4 left-6 text-2xl font-black text-white uppercase tracking-wide">The Shred</h3>
+            </div>
+            <div class="p-8 flex flex-col flex-grow">
+              <p class="text-primary font-bold text-xs uppercase tracking-widest mb-4">Fat Loss / Cutting Phase</p>
+              <p class="text-gray-600 dark:text-gray-400 font-medium text-sm mb-6 flex-grow">
+                A high-protein, calorie-deficit protocol designed to preserve lean muscle mass while aggressively targeting adipose tissue. Features high-volume, satiating meals.
+              </p>
+              <ul class="space-y-3 mb-8 text-sm font-bold text-dark-bg dark:text-white">
+                <li><i class="fas fa-check text-primary mr-2"></i> Custom Caloric Deficit</li>
+                <li><i class="fas fa-check text-primary mr-2"></i> Carb Cycling Strategies</li>
+                <li><i class="fas fa-check text-primary mr-2"></i> Hunger Management Tips</li>
+              </ul>
+              <button class="w-full py-3.5 border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold uppercase tracking-widest text-xs transition-colors rounded-full">Select Plan</button>
+            </div>
+          </div>
+
+          <!-- Plan 2 -->
+          <div class="bg-dark-bg dark:bg-[#172033] border-2 border-primary rounded-3xl overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.15)] flex flex-col group h-full relative">
+            <div class="absolute top-4 right-4 z-20">
+              <span class="bg-gradient-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Most Popular</span>
+            </div>
+            <div class="h-48 relative overflow-hidden">
+              <img src="assets/images/gym_11.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" alt="The Recomp">
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent"></div>
+              <h3 class="absolute bottom-4 left-6 text-2xl font-black text-white uppercase tracking-wide">The Recomp</h3>
+            </div>
+            <div class="p-8 flex flex-col flex-grow">
+              <p class="text-secondary font-bold text-xs uppercase tracking-widest mb-4">Body Recomposition</p>
+              <p class="text-gray-300 font-medium text-sm mb-6 flex-grow">
+                The holy grail of fitness. Designed for maintenance calories with macro manipulation to slowly build muscle while burning fat simultaneously.
+              </p>
+              <ul class="space-y-3 mb-8 text-sm font-bold text-white">
+                <li><i class="fas fa-check text-secondary mr-2"></i> Maintenance Calories</li>
+                <li><i class="fas fa-check text-secondary mr-2"></i> Nutrient Timing Focus</li>
+                <li><i class="fas fa-check text-secondary mr-2"></i> Sustainable Lifestyle</li>
+              </ul>
+              <button class="w-full py-4 bg-gradient-primary text-white font-bold uppercase tracking-widest text-xs transition-transform hover:scale-105 rounded-full shadow-lg">Select Plan</button>
+            </div>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="bg-white dark:bg-dark-surface border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-xl flex flex-col group hover:border-primary transition-colors h-full">
+            <div class="h-48 relative overflow-hidden">
+              <img src="assets/images/gym_10.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="The Mass">
+              <div class="absolute inset-0 bg-dark-bg/40"></div>
+              <h3 class="absolute bottom-4 left-6 text-2xl font-black text-white uppercase tracking-wide">The Mass</h3>
+            </div>
+            <div class="p-8 flex flex-col flex-grow">
+              <p class="text-primary font-bold text-xs uppercase tracking-widest mb-4">Hypertrophy / Bulking</p>
+              <p class="text-gray-600 dark:text-gray-400 font-medium text-sm mb-6 flex-grow">
+                A calculated surplus. Designed to maximize muscle protein synthesis with minimal fat spillover. High carb, high protein, high performance.
+              </p>
+              <ul class="space-y-3 mb-8 text-sm font-bold text-dark-bg dark:text-white">
+                <li><i class="fas fa-check text-primary mr-2"></i> Controlled Caloric Surplus</li>
+                <li><i class="fas fa-check text-primary mr-2"></i> High-Carb Fueling</li>
+                <li><i class="fas fa-check text-primary mr-2"></i> Easy-Digesting Meals</li>
+              </ul>
+              <button class="w-full py-3.5 border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold uppercase tracking-widest text-xs transition-colors rounded-full">Select Plan</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4ï¸âƒ£ DOWNLOAD APP SECTION -->
+    <section class="py-20 md:py-28 bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-primary/20 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          <div class="relative flex justify-center">
+            <div class="absolute inset-0 bg-gradient-secondary blur-[80px] opacity-20 rounded-full w-3/4 mx-auto"></div>
+            <img src="assets/images/download_app.png" alt="IronPulse App Download" class="relative rounded-3xl object-contain w-auto h-[500px] shadow-2xl z-10 border border-gray-200 dark:border-gray-800">
+          </div>
+
+          <div>
+            <h2 class="text-3xl md:text-5xl font-black text-dark-bg dark:text-white uppercase tracking-tight mb-4">
+              Get the <span class="text-secondary">IronPulse App</span>
+            </h2>
+            <div class="w-20 h-1 bg-gradient-secondary mb-8 rounded-full"></div>
+            <p class="text-gray-600 dark:text-gray-400 font-medium text-lg leading-relaxed mb-8">
+              Take your nutrition tracking to the next level. Access your custom meal plans, track your macros instantly, and chat with your dedicated dietitianâ€”all from your pocket.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#" class="px-8 py-4 bg-dark-bg text-white dark:bg-white dark:text-dark-bg rounded-full text-center flex items-center justify-center gap-3 font-bold uppercase tracking-widest text-xs transition-transform hover:scale-105 shadow-lg">
+                <i class="fab fa-apple text-xl"></i> App Store
+              </a>
+              <a href="#" class="px-8 py-4 bg-gray-100 text-dark-bg dark:bg-dark-surface dark:text-white rounded-full text-center flex items-center justify-center gap-3 font-bold uppercase tracking-widest text-xs transition-transform hover:scale-105 shadow-lg border border-gray-200 dark:border-gray-700">
+                <i class="fab fa-google-play text-xl"></i> Google Play
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5ï¸âƒ£ EXPERT COACHING / DIETITIANS -->
+    <section id="consultation" class="py-20 md:py-28 bg-gray-50 dark:bg-[#0f1522] border-b border-gray-200 dark:border-primary/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-black text-dark-bg dark:text-white uppercase tracking-tight mb-4">
+            1-On-1 <span class="text-primary">Consulting</span>
+          </h2>
+          <div class="w-24 h-1.5 bg-gradient-primary mx-auto rounded-full mb-6"></div>
+          <p class="text-gray-600 dark:text-gray-400 text-lg font-medium max-w-2xl mx-auto">Skip the generic advice. Work directly with our registered dietitians to uncover your body's specific metabolic needs.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-5 relative group">
+            <div class="absolute -inset-4 bg-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg"></div>
+            <img src="assets/images/gym_49.jpg" alt="Nutrition Consultation" class="relative rounded-3xl object-cover w-full h-[600px] border border-gray-200 dark:border-gray-800 shadow-xl">
+            <div class="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-dark-bg/90 backdrop-blur p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+              <h4 class="font-bold text-dark-bg dark:text-white uppercase text-sm mb-1">Dr. Maya Lin, PhD</h4>
+              <p class="text-[10px] text-primary font-bold uppercase tracking-widest">Head of Nutrition</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white dark:bg-dark-surface p-8 md:p-12 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-2xl">
+            <h3 class="text-2xl font-black text-dark-bg dark:text-white uppercase mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">What's Included in Coaching?</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+              <div>
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary"><i class="fas fa-fingerprint"></i></div>
+                  <h4 class="font-bold text-dark-bg dark:text-white uppercase text-sm">Metabolic Testing</h4>
+                </div>
+                <p class="text-xs text-gray-600 dark:text-gray-400 font-medium">In-Body composition scans to track fat loss and muscle gain down to the decimal.</p>
+              </div>
+              
+              <div>
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary"><i class="fas fa-cogs"></i></div>
+                  <h4 class="font-bold text-dark-bg dark:text-white uppercase text-sm">Adaptive Protocols</h4>
+                </div>
+                <p class="text-xs text-gray-600 dark:text-gray-400 font-medium">As your body changes, so does your diet. Weekly macro adjustments ensure you never plateau.</p>
+              </div>
+              
+              <div>
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary"><i class="fas fa-comments"></i></div>
+                  <h4 class="font-bold text-dark-bg dark:text-white uppercase text-sm">24/7 App Support</h4>
+                </div>
+                <p class="text-xs text-gray-600 dark:text-gray-400 font-medium">Direct messaging access to your dietitian via the IronPulse app for dining out or grocery questions.</p>
+              </div>
+              
+              <div>
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary"><i class="fas fa-heartbeat"></i></div>
+                  <h4 class="font-bold text-dark-bg dark:text-white uppercase text-sm">Bloodwork Analysis</h4>
+                </div>
+                <p class="text-xs text-gray-600 dark:text-gray-400 font-medium">Optional deep-dives into your hormones and micronutrient deficiencies for total optimization.</p>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-dark-bg p-6 rounded-2xl border border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
+              <div>
+                <span class="block text-xl font-black text-dark-bg dark:text-white">$149<span class="text-sm font-medium text-gray-500"> / month</span></span>
+                <span class="text-xs font-bold text-primary uppercase tracking-widest">Members Only Pricing</span>
+              </div>
+              <button class="w-full sm:w-auto px-8 py-3.5 bg-dark-bg text-white dark:bg-white dark:text-dark-bg font-bold uppercase tracking-widest text-xs transition-transform hover:scale-105 rounded-full shadow-lg">
+                Book Initial Consult
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6ï¸âƒ£ CTA SECTION -->
+    <section class="py-24 relative overflow-hidden bg-dark-bg">
+      <div class="absolute inset-0 bg-gradient-primary opacity-90 z-0"></div>
+      <!-- Background pattern -->
+      <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] z-0"></div>
+      
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6">
+          Eat Like An <br/> Athlete.
+        </h2>
+        <p class="text-white/90 font-medium text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+          Download our free macro calculator and quick-start guide to see how IronPulse approaches nutrition.
+        </p>
+        
+        <form class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto mb-8">
+          <input type="email" placeholder="Enter your email address" class="w-full sm:w-2/3 px-6 py-4 rounded-full bg-white dark:bg-dark-bg text-dark-bg dark:text-white border-2 border-transparent focus:border-white outline-none font-bold placeholder-gray-500">
+          <button type="button" class="w-full sm:w-1/3 px-6 py-4 bg-dark-bg text-white hover:bg-white hover:text-dark-bg font-black uppercase tracking-widest text-sm transition-colors rounded-full shadow-xl">
+            Get Guide
+          </button>
+        </form>
+        <p class="text-white/70 text-xs font-bold uppercase tracking-wider">Join 10,000+ members optimizing their fuel.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0b101a] text-white pt-16 pb-10 border-t border-primary/20 w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        
+        <div class="md:col-span-1">
+          <a href="index.html" class="flex items-center gap-3 mb-6">
+            <i class="fas fa-dumbbell text-3xl text-primary"></i>
+            <h3 class="text-2xl font-black tracking-widest uppercase text-white">Iron<span class="text-primary">Pulse</span></h3>
+          </a>
+          <p class="text-gray-400 text-sm font-medium leading-relaxed mb-6">
+            Forging strength, endurance, and community. Start your transformation today.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary text-white flex items-center justify-center transition-colors rounded-full"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary text-white flex items-center justify-center transition-colors rounded-full"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-primary text-white flex items-center justify-center transition-colors rounded-full"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-widest font-bold mb-6 text-white border-l-2 border-primary pl-3">Explore</h4>
+          <ul class="space-y-4">
+            <li><a href="about.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">About Us</a></li>
+            <li><a href="facilities.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Facilities</a></li>
+            <li><a href="groupclasses.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Classes</a></li>
+            <li><a href="pricing.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-widest font-bold mb-6 text-white border-l-2 border-primary pl-3">Support</h4>
+          <ul class="space-y-4">
+            <li><a href="faq.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">FAQ</a></li>
+            <li><a href="contact.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Contact Us</a></li>
+            <li><a href="nutrition.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Nutrition Guide</a></li>
+            <li><a href="dashboard-user.html" class="text-sm text-gray-400 hover:text-primary transition-colors font-bold uppercase">Member Portal</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-widest font-bold mb-6 text-white border-l-2 border-primary pl-3">Contact</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start text-sm text-gray-400">
+              <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+              <span class="font-medium">100 Muscle Ave, Fitness District, NY 10001</span>
+            </li>
+            <li class="flex items-center text-sm text-gray-400">
+              <i class="fas fa-phone text-primary mr-3"></i>
+              <a href="tel:+1234567890" class="hover:text-primary transition-colors font-medium">+1 (234) 567-8900</a>
+            </li>
+            <li class="flex items-center text-sm text-gray-400">
+              <i class="fas fa-envelope text-primary mr-3"></i>
+              <a href="mailto:info@ironpulse.com" class="hover:text-primary transition-colors font-medium">info@ironpulse.com</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
+        <p class="text-gray-500 text-xs tracking-widest uppercase font-bold">
+          Â© 2026 IronPulse Fitness. All rights reserved.
+        </p>
+        <div class="flex gap-6">
+          <a href="#" class="text-gray-500 hover:text-primary text-xs tracking-widest uppercase font-bold transition-colors">Privacy</a>
+          <a href="#" class="text-gray-500 hover:text-primary text-xs tracking-widest uppercase font-bold transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('flex');
+      } else {
+          mobileMenu.classList.remove('flex');
+      }
+    });
+
+    // Mobile Dropdown Logic
+    function setupMobileDropdown(dropdownId, menuId, iconId) {
+      const dropdownBtn = document.getElementById(dropdownId);   
+      const menu = document.getElementById(menuId);
+      const icon = document.getElementById(iconId);
+      
+      if(dropdownBtn && menu && icon) {
+        dropdownBtn.addEventListener('click', (e) => {
+          e.preventDefault(); 
+          menu.classList.toggle('hidden');
+          if(menu.classList.contains('hidden')) {
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+            menu.classList.remove('flex');
+          } else {
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+            menu.classList.add('flex');
+          }
+        });
+      }
+    }
+
+    setupMobileDropdown('mobile-home-dropdown', 'mobile-home-menu', 'mobile-home-icon');
+    setupMobileDropdown('mobile-dash-dropdown', 'mobile-dash-menu', 'mobile-dash-icon');
+
+    // Theme Toggle (Dark/Light)
+    (function() {
+      function updateThemeIcons() {
+        const isDark = html.classList.contains('dark');
+        const themeIcon = document.getElementById('theme-icon');
+        if (themeIcon) themeIcon.className = isDark ? 'fas fa-sun text-sm' : 'fas fa-moon text-sm';
+        
+        const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+        const mobileThemeText = document.getElementById('mobile-theme-text');
+        if (mobileThemeIcon) mobileThemeIcon.className = isDark ? 'fas fa-sun text-sm' : 'fas fa-moon text-sm';
+        if (mobileThemeText) mobileThemeText.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+      }
+
+      function toggleTheme() {
+        html.classList.toggle('dark');
+        updateThemeIcons();
+      }
+
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+
+      const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+      if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+
+      updateThemeIcons();
+    
+      // --- RTL Toggle Logic ---
+      const rtlToggleBtns = document.querySelectorAll('.rtl-toggle-btn');
+      rtlToggleBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation(); 
+          document.body.classList.add('no-transition');
+          const currentDir = html.getAttribute('dir') || 'ltr';
+          html.setAttribute('dir', currentDir === 'ltr' ? 'rtl' : 'ltr');
+          setTimeout(() => { document.body.classList.remove('no-transition'); }, 50);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
